@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/stretchr/testify/require"
-	"github.com/techschool/simplebank/util"
+	"github.com/xjorda/simplebank/util"
 )
 
 func createRandomAccount(t *testing.T) Account {
@@ -104,4 +104,3 @@ func TestListAccounts(t *testing.T) {
 		require.Equal(t, lastAccount.Owner, account.Owner)
 	}
 }
-

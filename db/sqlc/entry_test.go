@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/stretchr/testify/require"
-	"github.com/techschool/simplebank/util"
+	"github.com/xjorda/simplebank/util"
 )
 
 func createRandomEntry(t *testing.T, account Account) Entry {
@@ -65,22 +65,22 @@ func TestDeleteEntry(t *testing.T) {
 func TestListEntries(t *testing.T) {
 	account := createRandomAccount(t)
 
-	for i := 0; i<10; i++ {
+	for i := 0; i < 10; i++ {
 		createRandomEntry(t, account)
 	}
 
-	arg := ListEntriesParams {
+	arg := ListEntriesParams{
 		AccountID: account.ID,
-		Limit: 5,
-		Offset: 5,
+		Limit:     5,
+		Offset:    5,
 	}
-	
+
 	entries, err := testQueries.ListEntries(context.Background(), arg)
 
 	require.NoError(t, err)
 	require.Len(t, entries, 5)
 
-	for _, entry:= range entries {
+	for _, entry := range entries {
 		require.NotEmpty(t, entry)
 	}
 }

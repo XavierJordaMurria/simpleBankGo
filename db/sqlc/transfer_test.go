@@ -7,14 +7,14 @@ import (
 	"time"
 
 	"github.com/stretchr/testify/require"
-	"github.com/techschool/simplebank/util"
+	"github.com/xjorda/simplebank/util"
 )
 
 func createRandomTransfer(t *testing.T, account1 Account, account2 Account) Transfer {
 	arg := CreateTransferParams{
 		FromAccountID: account1.ID,
-		ToAccountID: account2.ID,
-		Amount:    util.RandomMoney(),
+		ToAccountID:   account2.ID,
+		Amount:        util.RandomMoney(),
 	}
 
 	transfer, err := testQueries.CreateTransfer(context.Background(), arg)
